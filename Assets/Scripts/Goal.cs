@@ -5,6 +5,8 @@ using UnityEngine;
 public class Goal : MonoBehaviour
 {
     public bool isPlayer1Goal;
+    public GameObject Event;
+    public GameObject player1;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -12,11 +14,13 @@ public class Goal : MonoBehaviour
         {
             if (!isPlayer1Goal)
             {
-                GameObject.Find("Event").GetComponent<Score>().Player1Scored();
+                Event.GetComponent<Score>().Player1Scored();
+                player1.GetComponent<PlayerAgent>().RWagent(1.0f);
             }
             else
             {
-                GameObject.Find("Event").GetComponent<Score>().Player2Scored();
+                Event.GetComponent<Score>().Player2Scored();
+                player1.GetComponent<PlayerAgent>().RWagent(-1.0f);
             }
         }
     }

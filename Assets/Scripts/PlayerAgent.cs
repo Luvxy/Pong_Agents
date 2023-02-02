@@ -49,13 +49,18 @@ public class PlayerAgent : Agent
         float y = Mathf.Clamp(actions.ContinuousActions[0], -1f, 1f);
         Vector3 movement = Vector3.forward*y;
         rb.AddForce(movement.normalized*speed);
-
-        AddReward(0.001f);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
  
+    }
+
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.CompareTag("Ball")){
+            AddReward(1.0f);
+        }
     }
 
 }

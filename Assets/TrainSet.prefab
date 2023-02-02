@@ -182,7 +182,7 @@ MonoBehaviour:
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
   m_Model: {fileID: 0}
-  m_InferenceDevice: 0
+  m_InferenceDevice: 1
   m_BehaviorType: 0
   m_BehaviorName: Pong
   TeamId: 0
@@ -341,7 +341,7 @@ MonoBehaviour:
   rb: {fileID: 8278929707546436149}
   startPosition: {x: 0, y: 0, z: 0}
   delectable: 1
-  ball: {fileID: 0}
+  ball: {fileID: 8278929708224232814}
   deley: 0.2
 --- !u!1 &8278929707643781730
 GameObject:
@@ -812,6 +812,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer1Goal: 1
+  Event: {fileID: 8278929707643781730}
+  player1: {fileID: 8278929707320573818}
 --- !u!1 &8278929708767186478
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,6 +977,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer1Goal: 0
+  Event: {fileID: 8278929707643781730}
+  player1: {fileID: 8278929707320573818}
 --- !u!1 &8278929708841470948
 GameObject:
   m_ObjectHideFlags: 0

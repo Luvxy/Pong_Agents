@@ -5,7 +5,7 @@ using TMPro;
 
 public class Score : MonoBehaviour
 {
-[Header("Ball")]
+    [Header("Ball")]
     public GameObject ball;
 
     [Header("Player1")]
