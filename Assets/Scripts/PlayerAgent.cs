@@ -32,10 +32,7 @@ public class PlayerAgent : Agent
 
     public override void OnEpisodeBegin()
     {
-        ball.GetComponent<Ball>().Reset();
-        player2.GetComponent<Paddle>().Reset();
-        transform.position = startPosition - new Vector3(8, 0, 0);
-        rb.velocity = Vector2.zero;
+        Reset();
     }
 
     public override void CollectObservations(Unity.MLAgents.Sensors.VectorSensor sensor)
@@ -53,13 +50,17 @@ public class PlayerAgent : Agent
         
         //discrete = 1 -> down
         //discrete = 2 -> up
-        if(discrete == 0)
+        if(discrete == 1)
         {
             movement = -1;
         }
-        else if(discrete == 1)
+        else if(discrete == 2)
         {
             movement = 1;
+        }
+        else
+        {
+            movement = 0;
         }
 
         rb.velocity = new Vector2(rb.velocity.x, movement * speed);
@@ -72,21 +73,29 @@ public class PlayerAgent : Agent
 
         if(Input.GetKey(KeyCode.W))
         {
-            discreteActionsOut[0] = 1;
+            discreteActionsOut[0] = 2;
             Debug.Log("up");
         }
         else if(Input.GetKey(KeyCode.S))
         {
-            discreteActionsOut[0] = 0;
+            discreteActionsOut[0] = 1;
             Debug.Log("down");
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D col)
+    public void OnCollisionEnter2D(Collision2D col)
     {
         if(col.gameObject.CompareTag("Ball")){
-            AddReward(1.0f);
+            AddReward(2.0f);
+            Debug.Log("Goal");
         }
     }
 
+    public void Reset()
+    {
+        ball.GetComponent<Ball>().Reset();
+        player2.GetComponent<Paddle>().Reset();
+        transform.position = startPosition - new Vector3(8, 0, 0);
+        rb.velocity = Vector2.zero;
+    }
 }

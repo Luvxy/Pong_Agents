@@ -22,12 +22,12 @@ public class Score : MonoBehaviour
 
     public void Player1Scored()
     {
-        ResetBall();
+        player1.GetComponent<PlayerAgent>().Reset();
     }
 
     public void Player2Scored()
     {
-        ResetBall();
+        player1.GetComponent<PlayerAgent>().Reset();
     }
 
     void ResetBall()

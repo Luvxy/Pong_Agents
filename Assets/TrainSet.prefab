@@ -160,6 +160,7 @@ MonoBehaviour:
   start: {fileID: 8278929708767186478}
   rb: {fileID: 8278929707320573819}
   speed: 5
+  deley: 0.2
 --- !u!114 &1759526531021514062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,23 +174,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 25
-    NumStackedVectorObservations: 2
+    VectorObservationSize: 12
+    NumStackedVectorObservations: 5
     m_ActionSpec:
       m_NumContinuousActions: 0
-      BranchSizes: 02000000
-    VectorActionSize: 02000000
+      BranchSizes: 03000000
+    VectorActionSize: 03000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
-  m_InferenceDevice: 1
+  m_Model: {fileID: 5022602860645237092, guid: 8772b049780a23949ad64e4cb08b5315, type: 3}
+  m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Pong
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
-  m_DeterministicInference: 0
+  m_DeterministicInference: 1
   m_ObservableAttributeHandling: 0
 --- !u!114 &3741829724920833700
 MonoBehaviour:
@@ -357,7 +358,7 @@ MonoBehaviour:
   startPosition: {x: 0, y: 0, z: 0}
   delectable: 1
   ball: {fileID: 8278929708224232814}
-  deley: 0.2
+  deley: 0.05
 --- !u!1 &8278929707643781730
 GameObject:
   m_ObjectHideFlags: 0
