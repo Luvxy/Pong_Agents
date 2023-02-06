@@ -15,6 +15,8 @@ public class PlayerAgent : Agent
     public Rigidbody2D rb;
     public float speed = 5;
 
+    public float deley = 0.2f;
+
     private Vector3 startPosition;
     private float movement;
 
@@ -46,14 +48,38 @@ public class PlayerAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        float y = Mathf.Clamp(actions.ContinuousActions[0], -1f, 1f);
-        Vector3 movement = Vector3.forward*y;
-        rb.AddForce(movement.normalized*speed);
+        
+        int discrete = actions.DiscreteActions[0];
+        
+        //discrete = 1 -> down
+        //discrete = 2 -> up
+        if(discrete == 0)
+        {
+            movement = -1;
+        }
+        else if(discrete == 1)
+        {
+            movement = 1;
+        }
+
+        rb.velocity = new Vector2(rb.velocity.x, movement * speed);
+
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
- 
+        var discreteActionsOut = actionsOut.DiscreteActions;
+
+        if(Input.GetKey(KeyCode.W))
+        {
+            discreteActionsOut[0] = 1;
+            Debug.Log("up");
+        }
+        else if(Input.GetKey(KeyCode.S))
+        {
+            discreteActionsOut[0] = 0;
+            Debug.Log("down");
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D col)

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8278929707320573819}
   - component: {fileID: 7259331802057130588}
   - component: {fileID: 1759526531021514062}
+  - component: {fileID: 3741829724920833700}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -172,8 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 8
-    NumStackedVectorObservations: 1
+    VectorObservationSize: 25
+    NumStackedVectorObservations: 2
     m_ActionSpec:
       m_NumContinuousActions: 0
       BranchSizes: 02000000
@@ -190,6 +191,20 @@ MonoBehaviour:
   m_UseChildActuators: 1
   m_DeterministicInference: 0
   m_ObservableAttributeHandling: 0
+--- !u!114 &3741829724920833700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8278929707320573818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 5
+  TakeActionsBetweenDecisions: 1
 --- !u!1 &8278929707546436148
 GameObject:
   m_ObjectHideFlags: 0
